@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "./styles";
 
-import PomodoroTimer from "../../components/PomodoroTimer";
+import { PomodoroTimer } from "../../components";
 
 const Home: React.FC = () => {
   return (
