@@ -1,10 +1,12 @@
 import React from "react";
 import { Container } from "./styles";
 
+import PomodoroTimer from "../../components/PomodoroTimer";
+
 const Home: React.FC = () => {
   return (
     <Container>
-      <h1>Hello World!</h1>
+      <PomodoroTimer defaultTimer={2000} />
     </Container>
   );
 };
