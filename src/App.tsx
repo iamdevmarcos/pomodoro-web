@@ -1,5 +1,14 @@
+import GlobalStyles from "./styles/GlobalStyles";
+
+import Home from "./pages/Home";
+
 const App = () => {
-  return <h1>Hello</h1>;
+  return (
+    <>
+      <GlobalStyles />
+      <Home />
+    </>
+  );
 };
 
 export default App;
