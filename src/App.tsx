@@ -1,8 +1,9 @@
+import React from "react";
+
 import GlobalStyles from "./styles/GlobalStyles";
+import { Home } from "./pages";
 
-import Home from "./pages/Home";
-
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
