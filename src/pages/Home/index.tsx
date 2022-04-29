@@ -6,7 +6,7 @@ import { PomodoroTimer } from "../../components";
 const Home: React.FC = () => {
   return (
     <Container>
-      <PomodoroTimer defaultTimer={2000} />
+      <PomodoroTimer defaultTimer={3600} />
     </Container>
   );
 };
