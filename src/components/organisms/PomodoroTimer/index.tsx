@@ -5,8 +5,8 @@ import { useInterval } from "../../../hooks/useInterval";
 
 import { Timer, Button } from "../../index";
 
-const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTimer }) => {
-  const [mainTime, setMainTime] = useState(defaultTimer);
+const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
+  const [mainTime, setMainTime] = useState(defaultTime);
 
   useInterval(() => {
     setMainTime((prevState) => prevState - 1);

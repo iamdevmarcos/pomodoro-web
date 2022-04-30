@@ -1,3 +1,6 @@
 export interface PomodoroTimerProps {
-  defaultTimer: number;
+  defaultTime: number;
+  shortRestTime: number;
+  longRestTime: number;
+  cycles: number;
 }
