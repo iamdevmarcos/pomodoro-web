@@ -7,19 +7,34 @@ import { useInterval } from "../../../hooks/useInterval";
 
 import { Timer, Button } from "../../index";
 
-const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
+const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
+  defaultTime,
+  longRestTime,
+  shortRestTime,
+  cycles,
+}) => {
   const [mainTime, setMainTime] = useState(defaultTime);
   const [timeCounter, setTimeCounter] = useState(false);
   const [working, setWorking] = useState(false);
+  const [resting, setResting] = useState(false);
 
   const startWorking = () => {
     setTimeCounter(true);
     setWorking(true);
+    setResting(false);
+    setMainTime(defaultTime);
   };
 
-  const pauseWorking = () => {
-    setTimeCounter((prevState) => !prevState);
+  const startResting = (long: boolean) => {
+    setTimeCounter(true);
     setWorking(false);
+    setResting(true);
+
+    if (long) {
+      setMainTime(longRestTime);
+    } else {
+      setMainTime(shortRestTime);
+    }
   };
 
   useInterval(
@@ -30,12 +45,9 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
   );
 
   useEffect(() => {
-    if (working) {
-      document.body.classList.add("working");
-    } else {
-      document.body.classList.remove("working");
-    }
-  }, [working]);
+    if (working) document.body.classList.add("working");
+    if (resting) document.body.classList.remove("working");
+  }, [working, resting]);
 
   return (
     <Container>
@@ -45,17 +57,20 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
 
         <div className="controls">
           <Button title="Work" onClick={startWorking} />
-          <Button title="teste" onClick={() => alert("Starting...")} />
-          <Button
-            title={timeCounter ? "Pause" : "Play"}
-            onClick={pauseWorking}
-          />
+          <Button title="Rest" onClick={() => startResting(false)} />
+
+          {!working && !resting && (
+            <Button
+              title={timeCounter ? "Pause" : "Play"}
+              onClick={() => setTimeCounter(!timeCounter)}
+            />
+          )}
         </div>
 
         <div className="details">
-          <p>Testando: dnasjdnjsandjsandjnasjdnjsandjsandjsa</p>
-          <p>Testando: dnasjdnjsandjsandjnasjdnjsandjsandjsa</p>
-          <p>Testando: dnasjdnjsandjsandjnasjdnjsandjsandjsa</p>
+          <p>Working: {working.toString()}</p>
+          <p>Resting: {resting.toString()}</p>
+          <p>TimeCounter: {timeCounter.toString()}</p>
           <p>Testando: dnasjdnjsandjsandjnasjdnjsandjsandjsa</p>
         </div>
       </div>
