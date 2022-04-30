@@ -3,9 +3,9 @@ import { Container } from "./styles";
 import { PomodoroTimerProps } from "../../../interfaces/pomodoro";
 
 import { useInterval } from "../../../hooks/useInterval";
+import secondsToTime from "../../../utils/secondsToTime";
 
 import { Timer, Button } from "../../index";
-import secondsToTime from "../../../utils/secondsToTime";
 
 const bellStart = require("../../../assets/sounds/bell-start.mp3");
 const bellFinish = require("../../../assets/sounds/bell-finish.mp3");
