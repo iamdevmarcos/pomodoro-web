@@ -62,6 +62,7 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
   useInterval(
     () => {
       setMainTime((prevState) => prevState - 1);
+      if (working) setFullWorkingTime((prevState) => prevState + 1);
     },
     timeCounter ? 1000 : null
   );
@@ -98,7 +99,7 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
   return (
     <Container>
       <div className="timer">
-        <h2>You are: working</h2>
+        <h2>Você está: {working ? "Trabalhando" : "Descansando"}</h2>
         <Timer mainTime={mainTime} />
 
         <div className="controls">
