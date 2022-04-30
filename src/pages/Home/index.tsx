@@ -7,9 +7,9 @@ const Home: React.FC = () => {
   return (
     <Container>
       <PomodoroTimer
-        defaultTime={3600}
-        shortRestTime={300}
-        longRestTime={900}
+        defaultTime={10}
+        shortRestTime={5}
+        longRestTime={5}
         cycles={4}
       />
     </Container>
