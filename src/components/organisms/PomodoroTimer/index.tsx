@@ -7,6 +7,12 @@ import { useInterval } from "../../../hooks/useInterval";
 
 import { Timer, Button } from "../../index";
 
+const bellStart = require("../../../assets/sounds/bell-start.mp3");
+const bellFinish = require("../../../assets/sounds/bell-finish.mp3");
+
+const audioStartWorking = new Audio(bellStart);
+const audioStopWorking = new Audio(bellFinish);
+
 const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
   defaultTime,
   longRestTime,
@@ -23,6 +29,9 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
     setWorking(true);
     setResting(false);
     setMainTime(defaultTime);
+
+    audioStartWorking.play();
+    audioStartWorking.currentTime = 0;
   };
 
   const startResting = (long: boolean) => {
@@ -35,6 +44,9 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
     } else {
       setMainTime(shortRestTime);
     }
+
+    audioStopWorking.play();
+    audioStopWorking.currentTime = 0;
   };
 
   useInterval(
@@ -56,12 +68,15 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
         <Timer mainTime={mainTime} />
 
         <div className="controls">
-          <Button title="Work" onClick={startWorking} />
-          <Button title="Rest" onClick={() => startResting(false)} />
+          {!working && <Button title="Começar" onClick={startWorking} />}
 
-          {!working && !resting && (
+          {working && !timeCounter && (
+            <Button title="Descansar" onClick={() => startResting(false)} />
+          )}
+
+          {working && (
             <Button
-              title={timeCounter ? "Pause" : "Play"}
+              title={timeCounter ? "Pausar" : "Voltar"}
               onClick={() => setTimeCounter(!timeCounter)}
             />
           )}
