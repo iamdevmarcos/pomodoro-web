@@ -3,7 +3,7 @@ import { Container } from "./styles";
 import { PomodoroTimerProps } from "../../../interfaces/pomodoro";
 
 import { useInterval } from "../../../hooks/useInterval";
-import secondsToTime from "../../../utils/secondsToTime";
+import { secondsToTime } from "../../../utils";
 
 import { Timer, Button } from "../../index";
 
