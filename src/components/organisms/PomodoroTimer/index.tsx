@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { PomodoroTimerProps } from "../../interfaces/pomodoro";
+import { PomodoroTimerProps } from "../../../interfaces/pomodoro";
 
-import { useInterval } from "../../hooks/useInterval";
+import { useInterval } from "../../../hooks/useInterval";
 
-import { Timer, Button } from "../index";
+import { Timer, Button } from "../../index";
 
 const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTimer }) => {
   const [mainTime, setMainTime] = useState(defaultTimer);
