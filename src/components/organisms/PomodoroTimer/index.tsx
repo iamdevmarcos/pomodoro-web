@@ -12,6 +12,16 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
   const [timeCounter, setTimeCounter] = useState(false);
   const [working, setWorking] = useState(false);
 
+  const startWorking = () => {
+    setTimeCounter(true);
+    setWorking(true);
+  };
+
+  const pauseWorking = () => {
+    setTimeCounter((prevState) => !prevState);
+    setWorking(false);
+  };
+
   useInterval(
     () => {
       setMainTime((prevState) => prevState - 1);
@@ -19,14 +29,11 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
     timeCounter ? 1000 : null
   );
 
-  const startWorking = () => {
-    setTimeCounter(true);
-    setWorking(true);
-  };
-
   useEffect(() => {
     if (working) {
       document.body.classList.add("working");
+    } else {
+      document.body.classList.remove("working");
     }
   }, [working]);
 
@@ -39,7 +46,10 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ defaultTime }) => {
         <div className="controls">
           <Button title="Work" onClick={startWorking} />
           <Button title="teste" onClick={() => alert("Starting...")} />
-          <Button title="teste" onClick={() => alert("Starting...")} />
+          <Button
+            title={timeCounter ? "Pause" : "Play"}
+            onClick={pauseWorking}
+          />
         </div>
 
         <div className="details">
