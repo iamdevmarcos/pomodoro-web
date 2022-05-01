@@ -125,9 +125,15 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
       </div>
 
       <Menu>
-        <MenuItem icon="rest" onClick={() => startResting(false)} />
-        <MenuItem icon="play" onClick={startWorking} />
-        <MenuItem icon="pause" onClick={() => setTimeCounter(!timeCounter)} />
+        {working && !timeCounter && (
+          <MenuItem icon="rest" onClick={() => startResting(false)} />
+        )}
+
+        {!working && <MenuItem icon="play" onClick={startWorking} />}
+
+        {working && (
+          <MenuItem icon="pause" onClick={() => setTimeCounter(!timeCounter)} />
+        )}
       </Menu>
     </Container>
   );
