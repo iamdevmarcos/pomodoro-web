@@ -7,10 +7,10 @@ const Home: React.FC = () => {
   return (
     <Container>
       <PomodoroTimer
-        defaultTime={10}
-        shortRestTime={5}
-        longRestTime={5}
-        cycles={4}
+        defaultTime={1500} // 25 minutos, Tempo de foco
+        shortRestTime={300} // 5 minutos, Tempo de descanso curto
+        longRestTime={900} // 15 minutos, Tempo de descanso longo
+        cycles={4} // A cada 4 ciclos o usuario ganha 1 descanso longo
       />
     </Container>
   );
