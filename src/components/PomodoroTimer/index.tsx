@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Container, Menu } from "./styles";
-import { PomodoroTimerProps } from "../../../interfaces/pomodoro";
+import { PomodoroTimerProps } from "../../interfaces/pomodoro";
 
-import { useInterval } from "../../../hooks/useInterval";
-import { secondsToTime } from "../../../utils";
+import { useInterval } from "../../hooks/useInterval";
+import { secondsToTime } from "../../utils";
 
-import { Timer, Button, MenuItem } from "../../index";
+import { Timer, MenuItem } from "../index";
 
-const bellStart = require("../../../assets/sounds/bell-start.mp3");
-const bellFinish = require("../../../assets/sounds/bell-finish.mp3");
+const bellStart = require("../../assets/sounds/bell-start.mp3");
+const bellFinish = require("../../assets/sounds/bell-finish.mp3");
 const audioStartWorking = new Audio(bellStart);
 const audioStopWorking = new Audio(bellFinish);
 
@@ -101,21 +101,6 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
       <div className="timer">
         <h2>Você está: {working ? "Trabalhando" : "Descansando"}</h2>
         <Timer mainTime={mainTime} />
-
-        <div className="controls">
-          {!working && <Button title="Começar" onClick={startWorking} />}
-
-          {working && !timeCounter && (
-            <Button title="Descansar" onClick={() => startResting(false)} />
-          )}
-
-          {working && (
-            <Button
-              title={timeCounter ? "Pausar" : "Voltar"}
-              onClick={() => setTimeCounter(!timeCounter)}
-            />
-          )}
-        </div>
 
         <div className="details">
           <p>Ciclos concluidos: {completedCycles}</p>

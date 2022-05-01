@@ -22,12 +22,6 @@ export const Container = styled.div`
     font-size: 6rem;
     text-align: center;
 
-    .controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
     .details {
       text-align: left;
       font-size: 1.2rem;
