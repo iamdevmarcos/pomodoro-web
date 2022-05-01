@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: #fff;
-  margin: 50px 20px;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
 
   h2 {
     margin: 0;
