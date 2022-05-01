@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: #fff;
-  margin: 50px 20px;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
 
   h2 {
     margin: 0;
@@ -48,4 +51,17 @@ export const Container = styled.div`
       transition: background-color 300ms ease-in-out;
     }
   }
+`;
+
+export const Menu = styled.div`
+  background-color: rgb(28, 44, 66, 0.6);
+  max-width: 980px;
+  display: flex;
+
+  height: 70px;
+  position: fixed;
+  bottom: 20px;
+
+  border: 1px solid #525f6f;
+  border-radius: 10px;
 `;
