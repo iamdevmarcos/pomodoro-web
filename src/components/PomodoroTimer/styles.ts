@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 40px;
+  padding: 30px;
 `;
 
 export const TitleArea = styled.div`
