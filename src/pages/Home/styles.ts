@@ -19,5 +19,5 @@ export const MaxArea = styled.div`
 
   border: 1px solid #525f6f;
   border-radius: 10px;
-  background: rgb(28, 44, 66, 0.6);
+  background: rgb(28, 44, 66, 0.4);
 `;
