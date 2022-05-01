@@ -117,11 +117,13 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
           <Timer mainTime={mainTime} />
         </div>
 
-        <div className="details">
-          <p>Ciclos concluidos: {completedCycles}</p>
-          <p>Tempo total: {secondsToTime(fullWorkingTime)}</p>
-          <p>Pomodoros concluidos: {numbeOfPomodoros}</p>
-        </div>
+        {!firstTimeOnApp && (
+          <div className="details">
+            <p>Ciclos concluidos: {completedCycles}</p>
+            <p>Tempo total: {secondsToTime(fullWorkingTime)}</p>
+            <p>Pomodoros concluidos: {numbeOfPomodoros}</p>
+          </div>
+        )}
       </Flex>
 
       <Menu>
