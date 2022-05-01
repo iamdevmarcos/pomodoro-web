@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Container, Menu } from "./styles";
+import { Container, TitleArea, Title, Flex, Menu } from "./styles";
 import { PomodoroTimerProps } from "../../interfaces/pomodoro";
 
 import { useInterval } from "../../hooks/useInterval";
@@ -31,7 +31,11 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
   const [numbeOfPomodoros, setNumbeOfPomodoros] = useState(0);
   const [fullWorkingTime, setFullWorkingTime] = useState(0);
 
+  const [firstTimeOnApp, setFirstTimeOnApp] = useState(true);
+
   const startWorking = useCallback(() => {
+    setFirstTimeOnApp(false);
+
     setTimeCounter(true);
     setWorking(true);
     setResting(false);
@@ -68,9 +72,6 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
   );
 
   useEffect(() => {
-    if (working) document.body.classList.add("working");
-    if (resting) document.body.classList.remove("working");
-
     if (mainTime > 0) return;
 
     if (working && workCycles.length > 0) {
@@ -98,16 +99,30 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
 
   return (
     <Container>
-      <div className="timer">
-        <h2>Você está: {working ? "Trabalhando" : "Descansando"}</h2>
-        <Timer mainTime={mainTime} />
+      <TitleArea>
+        <Title>
+          {firstTimeOnApp && "Vamos começar 😎"}
+
+          {!firstTimeOnApp && (
+            <>
+              Você está:{" "}
+              <strong>{working ? "Trabalhando 😎" : "Descansando 😴"}</strong>
+            </>
+          )}
+        </Title>
+      </TitleArea>
+
+      <Flex>
+        <div className="timer">
+          <Timer mainTime={mainTime} />
+        </div>
 
         <div className="details">
           <p>Ciclos concluidos: {completedCycles}</p>
-          <p>Horas trabalhadas: {secondsToTime(fullWorkingTime)}</p>
+          <p>Tempo total: {secondsToTime(fullWorkingTime)}</p>
           <p>Pomodoros concluidos: {numbeOfPomodoros}</p>
         </div>
-      </div>
+      </Flex>
 
       <Menu>
         {working && !timeCounter && (

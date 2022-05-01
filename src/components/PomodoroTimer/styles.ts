@@ -5,45 +5,46 @@ export const Container = styled.div`
   background: transparent;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   padding: 40px;
+`;
 
-  h2 {
-    margin: 0;
-    padding: 0;
+export const TitleArea = styled.div`
+  margin-bottom: 30px;
+`;
 
-    font-size: 30px;
+export const Title = styled.h2`
+  margin: 0;
+  padding: 0;
+
+  font-size: 35px;
+  font-weight: normal;
+  text-align: center;
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  .timer {
+    font-size: 12rem;
+    width: 100%;
+
     text-align: center;
   }
 
-  .timer {
-    font-size: 6rem;
-    text-align: center;
+  .details {
+    width: 100%;
+    max-width: 400px;
 
-    .details {
-      text-align: left;
-      font-size: 1.2rem;
-
-      margin: 20px auto !important;
-    }
-
-    button {
-      background: #41e1ba;
-      color: #000;
-
-      font-size: 30px;
-
-      border: 0;
-      outline: 0;
-
-      padding: 10px 20px;
-      margin: 20px auto;
-
-      cursor: pointer;
-      transition: background-color 300ms ease-in-out;
-    }
+    text-align: right;
+    font-size: 1.8rem;
   }
 `;
 
