@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Container } from "./styles";
+import { Container, Menu } from "./styles";
 import { PomodoroTimerProps } from "../../../interfaces/pomodoro";
 
 import { useInterval } from "../../../hooks/useInterval";
 import { secondsToTime } from "../../../utils";
 
-import { Timer, Button } from "../../index";
+import { Timer, Button, MenuItem } from "../../index";
 
 const bellStart = require("../../../assets/sounds/bell-start.mp3");
 const bellFinish = require("../../../assets/sounds/bell-finish.mp3");
@@ -123,6 +123,12 @@ const PomodoroTimer: React.FC<PomodoroTimerProps> = ({
           <p>Pomodoros concluidos: {numbeOfPomodoros}</p>
         </div>
       </div>
+
+      <Menu>
+        <MenuItem icon="rest" onClick={() => startResting(false)} />
+        <MenuItem icon="play" onClick={startWorking} />
+        <MenuItem icon="pause" onClick={() => setTimeCounter(!timeCounter)} />
+      </Menu>
     </Container>
   );
 };

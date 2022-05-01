@@ -3,8 +3,8 @@ import React from "react";
 import { Container } from "./styles";
 import { MenuItemProps } from "./types";
 
-const MenuItem: React.FC<MenuItemProps> = ({ icon }) => {
-  return <Container icon={`${icon}`}></Container>;
+const MenuItem: React.FC<MenuItemProps> = ({ icon, onClick }) => {
+  return <Container icon={`${icon}`} onClick={onClick}></Container>;
 };
 
 export default MenuItem;

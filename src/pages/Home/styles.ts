@@ -21,16 +21,3 @@ export const MaxArea = styled.div`
   border-radius: 10px;
   background: rgb(28, 44, 66, 0.6);
 `;
-
-export const Menu = styled.div`
-  background-color: rgb(28, 44, 66, 0.6);
-  max-width: 980px;
-  display: flex;
-
-  height: 70px;
-  position: fixed;
-  bottom: 20px;
-
-  border: 1px solid #525f6f;
-  border-radius: 10px;
-`;

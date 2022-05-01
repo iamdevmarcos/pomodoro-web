@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, MaxArea, Menu } from "./styles";
+import { Container, MaxArea } from "./styles";
 
-import { PomodoroTimer, MenuItem } from "../../components";
+import { PomodoroTimer } from "../../components";
 
 const Home: React.FC = () => {
   return (
@@ -14,12 +14,6 @@ const Home: React.FC = () => {
           cycles={4} // A cada 4 ciclos o usuario ganha 1 descanso longo
         />
       </MaxArea>
-
-      <Menu>
-        <MenuItem icon="rest" />
-        <MenuItem icon="play" />
-        <MenuItem icon="pause" />
-      </Menu>
     </Container>
   );
 };
