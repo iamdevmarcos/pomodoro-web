@@ -13,8 +13,8 @@ const App: React.FC = () => {
       <TopBar />
       <GithubCorner
         href="https://github.com/iamdevmarcos/pomodoro-web"
-        octoColor="#fff"
-        bannerColor="#1c2c4299"
+        octoColor="#1c2c4299"
+        bannerColor="#fff"
         target="_blank"
       />
       <Home />
